@@ -16,6 +16,7 @@ h1 { white-space: pre-line; font-size: clamp(30px, 6vw, 41px); font-weight: 700;
 .description { color: #c8bca8; font-size: 15px; line-height: 1.95; margin: 0 auto 28px; max-width: 350px; }
 .download { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; min-height: 56px; padding: 14px 20px; border-radius: 13px; border: 1px solid #dfbc73; background: #dfbc73; color: #21190c; font: inherit; font-size: 16px; font-weight: 700; text-decoration: none; }
 a.download:hover { background: #eed09a; }
+.open-app { margin-bottom: 16px; }
 .download:disabled { background: #3a3020; color: #c9b895; border-color: #685333; cursor: not-allowed; }
 .status { font-size: 12px; line-height: 1.85; color: #b7a88d; margin: 12px 0 0; }
 .divider { width: 42px; height: 1px; background: #645033; margin: 26px auto 20px; }

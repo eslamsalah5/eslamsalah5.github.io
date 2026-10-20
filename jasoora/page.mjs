@@ -1,8 +1,11 @@
 import { androidDownloadUrl } from './config.mjs';
-import { copy, downloadUrl, sharedContent } from './content.mjs';
+import { androidAppIntent, copy, downloadUrl, sharedContent } from './content.mjs?v=20261020-open-app';
 
 const destination = downloadUrl(androidDownloadUrl);
 const content = sharedContent(window.location.search);
+const appIntent = /Android/i.test(window.navigator?.userAgent ?? '')
+  ? androidAppIntent(window.location.search)
+  : null;
 const languageButton = document.getElementById('language');
 let language = 'ar';
 
@@ -11,7 +14,7 @@ function render() {
   document.documentElement.lang = language;
   document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
   document.title = text.pageTitle;
-  for (const id of ['eyebrow', 'title', 'download', 'unavailable', 'installed', 'note', 'privacy']) {
+  for (const id of ['eyebrow', 'title', 'download', 'unavailable', 'note', 'privacy']) {
     document.getElementById(id).textContent = text[id];
   }
   document.getElementById('description').textContent = content ? text.description : text.genericDescription;
@@ -20,6 +23,11 @@ function render() {
   download.hidden = !destination;
   if (destination) download.href = destination;
   document.getElementById('unavailable').hidden = Boolean(destination);
+  const openApp = document.getElementById('open-app');
+  openApp.textContent = text.openApp;
+  openApp.hidden = !appIntent;
+  if (appIntent) openApp.href = appIntent;
+  document.getElementById('installed').textContent = appIntent ? text.openHint : text.installed;
   languageButton.textContent = language === 'ar' ? 'English' : 'العربية';
   languageButton.lang = language === 'ar' ? 'en' : 'ar';
   languageButton.hidden = false;

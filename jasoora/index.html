@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'">
   <title>اقرأ على جاسورا | Jasoora</title>
   <link rel="icon" href="./icon.png" type="image/png">
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./page.mjs"></script>
+  <link rel="stylesheet" href="./style.css?v=20261020-open-app">
+  <script type="module" src="./page.mjs?v=20261020-open-app"></script>
 </head>
 <body>
   <header class="topbar">
@@ -22,14 +22,15 @@
       <div class="emblem"><img src="./icon.png" width="88" height="88" alt="" fetchpriority="high"></div>
       <p class="eyebrow" id="eyebrow">حكايتك تبدأ هنا</p>
       <h1 id="title">كمّل الحكاية<br>على جاسورا.</h1>
-      <p class="description" id="description">نزّل تطبيق جاسورا لقراءة هذا العمل، واكتشف روايات وقصصًا تستحق وقتك.</p>
+      <p class="description" id="description">افتح هذا العمل على تطبيق جاسورا، واكتشف روايات وقصصًا تستحق وقتك.</p>
       <div class="download-area">
+        <a class="download open-app" id="open-app" hidden>فتح في التطبيق</a>
         <a class="download" id="download" rel="noopener noreferrer" hidden>تنزيل جاسورا لأندرويد <span aria-hidden="true">↓</span></a>
         <button class="download" id="unavailable" type="button" disabled>التنزيل غير متاح بعد</button>
         <p class="status" id="status" role="status">سنضيف رابط التنزيل الرسمي هنا عند توفره.</p>
       </div>
       <div class="divider" aria-hidden="true"></div>
-      <p class="installed" id="installed">التطبيق عندك بالفعل؟ افتح الرابط من الرسالة، وتأكد إن فتح الروابط مدعوم ومفعّل لجاسورا في إعدادات أندرويد.</p>
+      <p class="installed" id="installed">التطبيق عندك بالفعل؟ افتح رابط العمل على موبايل أندرويد.</p>
       <noscript><p class="status">فعّل JavaScript لإظهار رابط التنزيل عند توفره.</p></noscript>
     </section>
     <p class="note" id="note">بعد تثبيت التطبيق، اضغط على رابط العمل مرة تانية.</p>

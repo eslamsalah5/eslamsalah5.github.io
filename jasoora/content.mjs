@@ -19,17 +19,27 @@ export function sharedContent(search) {
   return { type: novels.length ? 'novel' : 'oneShot', id: values[0] };
 }
 
+export function androidAppIntent(search) {
+  const content = sharedContent(search);
+  if (!content && search) return null;
+  const query = content ? `?${new URLSearchParams({ [content.type]: content.id })}` : '';
+  const page = `https://eslamsalah5.github.io/jasoora/${query}`;
+  return `intent://${page.slice('https://'.length)}#Intent;scheme=https;package=com.jasoora.app;S.browser_fallback_url=${encodeURIComponent(page)};end`;
+}
+
 export const copy = {
   ar: {
     eyebrow: 'حكايتك تبدأ هنا',
     title: 'كمّل الحكاية\nعلى جاسورا.',
-    description: 'نزّل تطبيق جاسورا لقراءة هذا العمل، واكتشف روايات وقصصًا تستحق وقتك.',
+    description: 'افتح هذا العمل على تطبيق جاسورا، واكتشف روايات وقصصًا تستحق وقتك.',
     genericDescription: 'نزّل تطبيق جاسورا، واكتشف روايات وقصصًا تستحق وقتك.',
     download: 'تنزيل جاسورا لأندرويد ↓',
     unavailable: 'التنزيل غير متاح بعد',
     pending: 'سنضيف رابط التنزيل الرسمي هنا عند توفره.',
     ready: 'رابط التنزيل الرسمي لتطبيق جاسورا.',
-    installed: 'التطبيق عندك بالفعل؟ افتح الرابط من الرسالة، وتأكد إن فتح الروابط مدعوم ومفعّل لجاسورا في إعدادات أندرويد.',
+    openApp: 'فتح في التطبيق',
+    openHint: 'التطبيق عندك بالفعل؟ اضغط «فتح في التطبيق». لو الزر ما استجابش، افتح الصفحة في Chrome وجرب تاني.',
+    installed: 'التطبيق عندك بالفعل؟ افتح رابط العمل على موبايل أندرويد.',
     note: 'بعد تثبيت التطبيق، اضغط على رابط العمل مرة تانية.',
     privacy: 'سياسة الخصوصية',
     pageTitle: 'اقرأ على جاسورا | Jasoora',
@@ -37,13 +47,15 @@ export const copy = {
   en: {
     eyebrow: 'YOUR NEXT STORY STARTS HERE',
     title: 'Continue the story\non Jasoora.',
-    description: 'Download Jasoora to read this work and discover novels and short stories worth your time.',
+    description: 'Open this work in Jasoora and discover novels and short stories worth your time.',
     genericDescription: 'Download Jasoora and discover novels and short stories worth your time.',
     download: 'Download Jasoora for Android ↓',
     unavailable: 'Download not available yet',
     pending: 'The official download link will appear here when available.',
     ready: 'The official Jasoora app download link.',
-    installed: 'Already have the app? Open the link from your message and make sure opening supported links is enabled for Jasoora in Android settings.',
+    openApp: 'Open in app',
+    openHint: 'Already have Jasoora? Tap “Open in app”. If nothing happens, open this page in Chrome and try again.',
+    installed: 'Already have Jasoora? Open the shared link on your Android phone.',
     note: 'After installing the app, tap the shared link again.',
     privacy: 'Privacy policy',
     pageTitle: 'Read on Jasoora',
