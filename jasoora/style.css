@@ -9,7 +9,7 @@ a { color: inherit; }
 .language { color: #e8dcc5; border: 1px solid #63543a; background: transparent; border-radius: 24px; padding: 10px 18px; font: inherit; font-size: 13px; cursor: pointer; min-height: 44px; }
 main { flex: 1; display: grid; justify-items: center; align-content: center; padding: 30px 20px 44px; }
 .card { width: min(490px, 100%); text-align: center; background: #201b14; border: 1px solid #51422b; border-radius: 28px; padding: 38px 40px 30px; box-shadow: 0 24px 90px #0003; }
-.emblem { width: 90px; height: 90px; margin: 0 auto 25px; border: 1px solid #735a31; border-radius: 23px; overflow: hidden; }
+.emblem { width: 128px; height: 128px; margin: 0 auto 25px; border: 1px solid #735a31; border-radius: 23px; overflow: hidden; }
 .emblem img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .eyebrow { color: #d7b56b; font-size: 13px; margin: 0 0 16px; letter-spacing: .5px; }
 h1 { white-space: pre-line; font-size: clamp(30px, 6vw, 41px); font-weight: 700; line-height: 1.55; letter-spacing: -.7px; margin: 0 0 15px; }

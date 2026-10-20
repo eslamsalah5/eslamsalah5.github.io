@@ -1,5 +1,5 @@
 import { androidDownloadUrl } from './config.mjs';
-import { androidAppIntent, copy, downloadUrl, sharedContent } from './content.mjs?v=20261020-auto-open';
+import { androidAppIntent, copy, downloadUrl, sharedContent } from './content.mjs?v=20261020-brand';
 
 const destination = downloadUrl(androidDownloadUrl);
 const content = sharedContent(window.location.search);
