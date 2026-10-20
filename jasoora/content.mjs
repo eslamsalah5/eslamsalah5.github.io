@@ -24,7 +24,8 @@ export function androidAppIntent(search) {
   if (!content && search) return null;
   const query = content ? `?${new URLSearchParams({ [content.type]: content.id })}` : '';
   const page = `https://eslamsalah5.github.io/jasoora/${query}`;
-  return `intent://${page.slice('https://'.length)}#Intent;scheme=https;package=com.jasoora.app;S.browser_fallback_url=${encodeURIComponent(page)};end`;
+  const fallback = content ? `${page}&appLinkFallback=1` : page;
+  return `intent://${page.slice('https://'.length)}#Intent;scheme=https;package=com.jasoora.app;S.browser_fallback_url=${encodeURIComponent(fallback)};end`;
 }
 
 export const copy = {

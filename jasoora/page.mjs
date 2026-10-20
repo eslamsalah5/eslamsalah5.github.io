@@ -1,5 +1,5 @@
 import { androidDownloadUrl } from './config.mjs';
-import { androidAppIntent, copy, downloadUrl, sharedContent } from './content.mjs?v=20261020-open-app';
+import { androidAppIntent, copy, downloadUrl, sharedContent } from './content.mjs?v=20261020-auto-open';
 
 const destination = downloadUrl(androidDownloadUrl);
 const content = sharedContent(window.location.search);
@@ -38,3 +38,13 @@ languageButton.addEventListener('click', () => {
   render();
 });
 render();
+
+// A browser may require a user gesture; the rendered button remains available.
+// The fallback marker prevents reopening the intent when the app is unavailable.
+if (appIntent && content && !new URLSearchParams(window.location.search).has('appLinkFallback')) {
+  try {
+    window.location.replace(appIntent);
+  } catch {
+    // Keep the page usable when external navigation is blocked.
+  }
+}
